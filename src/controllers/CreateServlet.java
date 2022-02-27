@@ -54,6 +54,7 @@ public class CreateServlet extends HttpServlet {
             //Messageクラスのオブジェクトを persistメソッドを使ってデータベースにセーブ
             em.persist(m);
             em.getTransaction().commit(); //commitする
+            request.getSession().setAttribute("flush", "登録が完了しました。");
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");
